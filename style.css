@@ -1,3 +1,59 @@
+/* Contact Footer Styles (inspired by provided image) */
+.contact-footer {
+  width: 100vw;
+  background: #07080a;
+  text-align: center;
+  padding: 48px 0 0 0;
+  margin: 0;
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: unset;
+  z-index: 200;
+}
+/* Modern footer wave underline */
+.contact-footer-underline {
+  width: 100vw;
+  height: 60px;
+  background: none;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+.footer-wave {
+  width: 100vw;
+  height: 60px;
+  display: block;
+}
+.contact-footer-heading {
+  color: #181611;
+  font-family: 'Koulen', 'Inter', Arial, sans-serif;
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+.contact-footer-email {
+  display: inline-block;
+  font-size: 2.8rem;
+  font-family: 'Industry', 'Arial Narrow', Arial, 'Koulen', 'Inter', sans-serif;
+  font-stretch: condensed;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  padding: 0 16px 8px 16px;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+  transition: transform 0.18s, color 0.18s;
+  cursor: pointer;
+}
+.contact-footer-email:hover {
+  transform: translateY(-6px) scale(1.05);
+  color: #FF7F00;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 /* Highlight email and clipboard icon in blue */
 .email-highlight {
   color: #2563eb;
@@ -20,11 +76,10 @@
 
 
 .tech-stack-tooltip-box {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.18s;
   position: absolute;
-  left: 120%;
-  top: 120%;
-  transform: translateY(-50%);
   min-width: 180px;
   max-width: 440px;
   background: rgba(255,255,255,0.0);
@@ -32,17 +87,18 @@
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.13), 0 1.5px 6px rgba(0,0,0,0.07);
   padding: 18px 24px 16px 24px;
   z-index: 20;
-
   text-align: left;
-  pointer-events: none;
+  pointer-events: auto;
   color: #181611;
   font-family: 'Inter', sans-serif;
+  will-change: left, top;
 }
 
 .tech-stack-tooltip:hover .tech-stack-tooltip-box,
 .tech-stack-tooltip:focus .tech-stack-tooltip-box,
 .tech-stack-tooltip.show-tooltip .tech-stack-tooltip-box {
-  display: block;
+  visibility: visible;
+  opacity: 1;
   pointer-events: auto;
 }
 
@@ -128,7 +184,7 @@
     align-items: flex-end;
     width: max-content;
     position: relative;
-    min-height: 120px;
+    min-height: 1-20px;
   }
     .about-photo-bg,
     .about-photo-fg {
@@ -137,7 +193,7 @@
       height: 160px;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
-      border: 2px solid #FF7F00;
+      border: 1px solid #FF7F00;
       position: relative;
       z-index: 1;
       margin: 0;
@@ -168,7 +224,7 @@
   height: auto;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
-  border: 2px solid #FF7F00;
+  border: 1px solid #FF7F00;
   position: relative;
   top: -50px;
   z-index: 1;
@@ -332,6 +388,7 @@ body {
   color: white;
   font-weight: 700;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+  font-size: 2.1rem;
 }
 
 .eyebrow {

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dylan Sullivan</title>
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@700&family=Karla:wght@700&display=swap" rel="stylesheet">
@@ -37,7 +38,7 @@
           </svg>
         </a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark background">
-          <img src="dark.svg" alt="Dark mode icon" class="theme-icon">
+          <img src="images/dark.svg" alt="Dark mode icon" class="theme-icon">
         </button>
       </nav>
     </header>
@@ -48,18 +49,6 @@
         <div class="hero-actions">
           <span class="tech-stack-title tech-stack-tooltip">
             Tech Stack
-            <span class="tech-stack-tooltip-box">
-              <div class="tooltip-section">
-                <div class="tooltip-section-title">LANGUAGES</div>
-                <div class="tooltip-section-content languages" style="display: flex; gap: 16px; align-items: center;">
-                  <img src="typescriptimg.png" alt="TypeScript" style="height: 32px; width: 32px;" />
-                  <img src="javascriptimg.png" alt="JavaScript" style="height: 32px; width: 32px;" />
-                  <img src="htmlimglogo.png" alt="HTML" style="height: 32px; width: 32px;" />
-                  <img src="csslogoimg-3.png" alt="CSS" style="height: 32px; width: 32px;" />
-                  <img src="pythonlogoimg.png" alt="Python" style="height: 32px; width: 32px;" />
-                </div>
-              </div>
-            </span>
           </span>
         </div>
       </div>
@@ -90,8 +79,8 @@
     <section id="biography" class="section-block">
       <div class="about-biography-flex">
         <div class="about-photo-blend">
-          <img src="armwrestling.jpg" alt="Arm wrestling" class="about-photo about-photo-bg" />
-          <img src="headshot.jpg" alt="My face" class="about-photo about-photo-fg" />
+          <img src="images/armwrestling.jpg" alt="Arm wrestling" class="about-photo about-photo-bg" />
+          <img src="images/headshot.jpg" alt="My face" class="about-photo about-photo-fg" />
         </div>
         <div class="about-bio-text" style="flex: 1; min-width: 220px; color: var(--muted); font-size: 1.02rem; line-height: 1.7;">
           I’ve always loved the grit of creating things from the ground up. That drive to build naturally led me to technology and my current path in <span class="highlight">Computing and IT</span>. Whether I’m studying for my degree at The Open University or diving into a new project, I treat coding as a craft—always refining my skills to keep my work sharp and my perspective fresh.<br><br>
@@ -101,22 +90,30 @@
       </div>
     </section>
 
-    <section id="contact" class="contact-block">
+    <section id="contact" class="contact-footer">
+      <h2 class="contact-footer-heading">Let's work together</h2>
       <div>
-        <h2>Reach out</h2>
-        <p class="contact-subtitle" style="margin: 8px 0 0; color: var(--muted); font-size: 0.92rem;">Got an idea, question, or project in mind? Let’s talk.</p>
+        <span class="contact-footer-email">DYLAN9971@HOTMAIL.CO.UK</span>
       </div>
-      <div class="hero-actions" style="margin-top: 32px;">
-        <button id="copy-email" class="button primary" style="position: relative;">
-          <span style="display: flex; align-items: center; gap: 8px; position: relative;">
-            <img src="clipboardimg.png" alt="Clipboard" class="email-highlight-img" style="height: 20px; width: 20px;" />
-            <span class="email-highlight">dylan9971@hotmail.co.uk</span>
-            <svg id="tick-icon" style="display:none; margin-left:6px;" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 10.5L9 14.5L15 7.5" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </button>
+      <div class="contact-footer-underline">
+        <svg class="footer-wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100vw;height:60px;">
+          <path d="M0,30 Q360,60 720,30 T1440,30 V60 H0 Z" fill="#23232b"/>
+        </svg>
       </div>
     </section>
   </div>
+  <span id="tech-stack-tooltip-box" class="tech-stack-tooltip-box">
+    <div class="tooltip-section">
+      <div class="tooltip-section-title">LANGUAGES</div>
+      <div class="tooltip-section-content languages" style="display: flex; gap: 16px; align-items: center;">
+        <img src="images/typescriptimg.png" alt="TypeScript" style="height: 32px; width: 32px;" />
+        <img src="images/javascriptimg.png" alt="JavaScript" style="height: 32px; width: 32px;" />
+        <img src="images/htmlimglogo.png" alt="HTML" style="height: 32px; width: 32px;" />
+        <img src="images/csslogoimg-3.png" alt="CSS" style="height: 32px; width: 32px;" />
+        <img src="images/pythonlogoimg.png" alt="Python" style="height: 32px; width: 32px;" />
+      </div>
+    </div>
+  </span>
   <script>
     const toggle = document.getElementById('theme-toggle');
     toggle.addEventListener('click', () => {
@@ -146,21 +143,25 @@
 
     (function() {
       const techStack = document.querySelector('.tech-stack-title.tech-stack-tooltip');
-      const tooltip = document.querySelector('.tech-stack-tooltip-box');
+      const tooltip = document.getElementById('tech-stack-tooltip-box');
       let isTouch = false;
 
-      // Helper to show/hide via class
       function showTooltip() {
-        techStack.classList.add('show-tooltip');
+        tooltip.style.visibility = 'visible';
+        tooltip.style.opacity = '1';
       }
       function hideTooltip() {
-        techStack.classList.remove('show-tooltip');
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = '0';
+        tooltip.style.left = '';
+        tooltip.style.top = '';
+        tooltip.style.transform = '';
       }
 
       // Touch devices: tap to toggle tooltip
       techStack.addEventListener('touchstart', function(e) {
         isTouch = true;
-        if (techStack.classList.contains('show-tooltip')) {
+        if (tooltip.style.visibility === 'visible') {
           hideTooltip();
         } else {
           showTooltip();
@@ -175,6 +176,21 @@
           hideTooltip();
         }
       }, { passive: false });
+
+      // Mouse: tooltip follows cursor
+      techStack.addEventListener('mouseenter', function(e) {
+        if (!isTouch) showTooltip();
+      });
+      techStack.addEventListener('mouseleave', function(e) {
+        if (!isTouch) hideTooltip();
+      });
+      techStack.addEventListener('mousemove', function(e) {
+        if (!isTouch && tooltip.style.visibility === 'visible') {
+          tooltip.style.left = (e.pageX + 16) + 'px';
+          tooltip.style.top = (e.pageY + 16) + 'px';
+          tooltip.style.transform = 'translate(0, 0)';
+        }
+      });
     })();
   </script>
 </body>
